@@ -1,3 +1,11 @@
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+const SUPABASE_URL = 'SUA_SUPABASE_URL';
+const SUPABASE_ANON_KEY = 'SUA_SUPABASE_ANON_KEY';
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+
+
 // ==========================
 // Variáveis globais
 // ==========================
@@ -55,8 +63,8 @@ async function carregarProdutos() {
         showLoading(true);
         showEmptyState(false);
 
-        const res = await fetch('/api/produtos');
-        const data = await res.json();
+        const { data, error } = await supabase.from('produtos').select('*');
+        if (error) throw error;
 
         produtos = data;
         produtosFiltrados = [...produtos];
@@ -72,9 +80,15 @@ async function carregarProdutos() {
     }
 }
 
+
 // ==========================
 // Mostrar produtos na tela
 // ==========================
+document.getElementById('btn-gerar').addEventListener('click', () => {
+  window.open('/api/gerar-pdf', '_blank');
+});
+
+carregarProdutos();
 function mostrarProdutos() {
     produtosContainer.innerHTML = '';
 
@@ -249,24 +263,20 @@ async function salvarProduto(e) {
         btn.disabled = true;
         btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
 
-        await fetch(`/api/produtos/${id}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(produtoAtualizado)
-        });
+        const { data, error } = await supabase
+            .from('produtos')
+            .update({
+                nome: produtoAtualizado.nome,
+                descricao: produtoAtualizado.descricao,
+                especificacoes: produtoAtualizado.especificacoes
+            })
+            .eq('id', id);
 
-        // Atualiza localmente sem recarregar tudo
+        if (error) throw error;
+
         const index = produtos.findIndex(p => p.id === id);
-        if (index !== -1) produtos[index] = produtoAtualizado;
-
-        // Atualiza inputs
-        inputs.forEach(input => {
-            const field = input.dataset.field;
-            input.value = field === 'nome' ? produtoAtualizado.nome :
-                          field === 'descricao' ? produtoAtualizado.descricao :
-                          produtoAtualizado.especificacoes[field] || '';
-            input.classList.remove('changed');
-        });
+        if (index !== -1) produtos[index] = { ...produtos[index], ...produtoAtualizado };
+        inputs.forEach(input => input.classList.remove('changed'));
 
         showNotification('Produto atualizado com sucesso!');
     } catch (error) {
@@ -277,6 +287,7 @@ async function salvarProduto(e) {
         btn.innerHTML = '<i class="fas fa-save"></i>';
     }
 }
+
 
 // ==========================
 // Remover produto
@@ -292,7 +303,8 @@ async function removerProduto(e) {
         btn.disabled = true;
         btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
 
-        await fetch(`/api/produtos/${id}`, { method: 'DELETE' });
+        const { error } = await supabase.from('produtos').delete().eq('id', id);
+        if (error) throw error;
 
         produtos = produtos.filter(p => p.id !== id);
         produtosFiltrados = produtosFiltrados.filter(p => p.id !== id);
@@ -304,6 +316,7 @@ async function removerProduto(e) {
         showNotification('Erro ao remover produto', true);
     }
 }
+
 
 // ==========================
 // Adicionar produto
@@ -384,11 +397,8 @@ if (btnToggleForm && addProductSection) {
 // ==========================
 // Gerar PDF
 // ==========================
-if (btnGerar) {
-    btnGerar.addEventListener('click', () => {
-        window.open('/api/gerar-pdf', '_blank');
-    });
-}
+
+
 
 // ==========================
 // Pesquisa
@@ -429,3 +439,4 @@ document.addEventListener('keydown', e => {
 // Inicialização
 // ==========================
 document.addEventListener('DOMContentLoaded', () => carregarProdutos());
+

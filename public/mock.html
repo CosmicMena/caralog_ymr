@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YMR Industrial - Gestão de Catálogo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #6B46C1;
+            --secondary-purple: #9333EA;
+            --light-purple: #EDE9FE;
+            --dark-gray: #374151;
+            --medium-gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --white: #FFFFFF;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--light-purple) 0%, var(--light-gray) 100%);
+            color: var(--dark-gray);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-purple) 100%);
+            color: var(--white);
+            padding: 2rem 1rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+            opacity: 0.1;
+        }
+
+        .header-content {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Seção de pesquisa */
+        .search-section {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 1rem;
+            z-index: 100;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--white);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 3px rgba(107, 70, 193, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--medium-gray);
+            font-size: 1.1rem;
+        }
+
+        /* Botões de ação principais */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            min-height: 48px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-purple) 100%);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary-purple);
+            border: 2px solid var(--primary-purple);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-purple);
+            color: var(--white);
+        }
+
+        /* Grid de produtos */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-purple);
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .product-id {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-small {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            min-width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-save {
+            background: var(--success);
+            color: var(--white);
+        }
+
+        .btn-save:hover {
+            background: #059669;
+            transform: scale(1.05);
+        }
+
+        .btn-remove {
+            background: var(--danger);
+            color: var(--white);
+        }
+
+        .btn-remove:hover {
+            background: #dc2626;
+            transform: scale(1.05);
+        }
+
+        /* Campos de entrada */
+        .input-group {
+            margin-bottom: 1rem;
+        }
+
+        .input-label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--white);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 3px rgba(107, 70, 193, 0.1);
+        }
+
+        .form-input.changed {
+            border-color: var(--warning);
+            background: rgba(245, 158, 11, 0.05);
+        }
+
+        .form-textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        /* Seção de adicionar produto */
+        .add-product-section {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+        }
+
+        .add-product-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Dicas de uso */
+        .usage-tips {
+            background: var(--light-purple);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-purple);
+        }
+
+        .tips-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tips-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--dark-gray);
+        }
+
+        .tips-list li::before {
+            content: '💡';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Estados de carregamento */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            color: var(--medium-gray);
+        }
+
+        .loading::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--light-gray);
+            border-top: 2px solid var(--primary-purple);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 0.5rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Estados vazios */
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--medium-gray);
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .header {
+                padding: 1.5rem 1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                justify-content: center;
+            }
+
+            .search-section {
+                position: static;
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .product-actions {
+                width: 100%;
+                justify-content: flex-end;
+            }
+        }
+
+        /* Acessibilidade */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus visible para navegação por teclado */
+        .btn:focus-visible,
+        .form-input:focus-visible,
+        .search-input:focus-visible {
+            outline: 2px solid var(--primary-purple);
+            outline-offset: 2px;
+        }
+
+        /* Notificação de sucesso */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            background: var(--success);
+            color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            transform: translateX(100%);
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.error {
+            background: var(--danger);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1><i class="fas fa-cog" aria-hidden="true"></i> YMR Industrial</h1>
+            <p class="header-subtitle">Bem-vindo ao YMR Gerador de Catálogo</p>
+        </div>
+    </header>
+
+    <!-- Container principal -->
+    <div class="container">
+        <!-- Dicas de uso -->
+        <section class="usage-tips" role="region" aria-labelledby="tips-title">
+            <h2 class="tips-title" id="tips-title">
+                <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                Dicas de Uso
+            </h2>
+            <ul class="tips-list">
+                <li><strong>Adicionar:</strong> Preencha o formulário abaixo e clique em "Adicionar Produto"</li>
+                <li><strong>Editar:</strong> Clique nos campos dos cards para editar e salve com o botão verde</li>
+                <li><strong>Remover:</strong> Use o botão vermelho para excluir produtos (confirmação necessária)</li>
+                <li><strong>Pesquisar:</strong> Use a barra de pesquisa para filtrar por ID ou nome</li>
+                <li><strong>PDF:</strong> Gere catálogos atualizados com todos os produtos cadastrados</li>
+            </ul>
+        </section>
+
+        <!-- Seção de pesquisa -->
+        <section class="search-section" role="search" aria-label="Pesquisar produtos">
+            <div class="search-container">
+                <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                <input 
+                    type="text" 
+                    id="search" 
+                    class="search-input"
+                    placeholder="Pesquise por ID ou nome do produto..."
+                    aria-label="Campo de pesquisa de produtos"
+                    autocomplete="off"
+                />
+            </div>
+        </section>
+
+        <!-- Botões de ação -->
+        <div class="action-buttons">
+            <button id="btn-gerar" class="btn btn-primary" type="button" aria-label="Gerar catálogo em PDF">
+                <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                Gerar PDF
+            </button>
+            <button id="btn-toggle-form" class="btn btn-secondary" type="button" aria-label="Mostrar formulário de adicionar produto">
+                <i class="fas fa-plus" aria-hidden="true"></i>
+                Adicionar Produto
+            </button>
+        </div>
+
+        <!-- Grid de produtos -->
+        <section class="products-section" role="region" aria-labelledby="products-title">
+            <div id="produtos-container" class="products-grid" role="list" aria-label="Lista de produtos"></div>
+            <div id="loading" class="loading" style="display: none;" role="status" aria-label="Carregando produtos">
+                Carregando produtos...
+            </div>
+            <div id="empty-state" class="empty-state" style="display: none;">
+                <i class="fas fa-box-open" aria-hidden="true"></i>
+                <h3>Nenhum produto encontrado</h3>
+                <p>Adicione seus primeiros produtos ao catálogo</p>
+            </div>
+        </section>
+
+        <!-- Seção de adicionar produto -->
+        <section class="add-product-section" id="add-product-section" style="display: none;" role="region" aria-labelledby="add-title">
+            <h2 class="add-product-title" id="add-title">
+                <i class="fas fa-plus-circle" aria-hidden="true"></i>
+                Adicionar Novo Produto
+            </h2>
+            <form id="form-add" role="form" aria-label="Formulário para adicionar produto">
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label for="input-id" class="input-label">ID do Produto *</label>
+                        <input 
+                            type="number" 
+                            id="input-id"
+                            name="id" 
+                            class="form-input"
+                            placeholder="Ex: 001" 
+                            required 
+                            aria-required="true"
+                            min="1"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <label for="input-nome" class="input-label">Nome do Produto *</label>
+                        <input 
+                            type="text" 
+                            id="input-nome"
+                            name="nome" 
+                            class="form-input"
+                            placeholder="Ex: Papel Offset A4" 
+                            required 
+                            aria-required="true"
+                            maxlength="100"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <label for="input-type" class="input-label">Tipo</label>
+                        <input 
+                            type="text" 
+                            id="input-type"
+                            name="type" 
+                            class="form-input"
+                            placeholder="Ex: Papel, Cartão"
+                            maxlength="50"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <label for="input-size" class="input-label">Tamanho</label>
+                        <input 
+                            type="text" 
+                            id="input-size"
+                            name="size" 
+                            class="form-input"
+                            placeholder="Ex: A4, A3, 210x297mm"
+                            maxlength="50"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <label for="input-thickness" class="input-label">Espessura</label>
+                        <input 
+                            type="text" 
+                            id="input-thickness"
+                            name="thickness" 
+                            class="form-input"
+                            placeholder="Ex: 0.1mm, 2mm"
+                            maxlength="30"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <label for="input-gsm" class="input-label">GSM</label>
+                        <input 
+                            type="text" 
+                            id="input-gsm"
+                            name="gsm" 
+                            class="form-input"
+                            placeholder="Ex: 75gsm, 120gsm"
+                            maxlength="30"
+                        />
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="input-descricao" class="input-label">Descrição</label>
+                    <textarea 
+                        id="input-descricao"
+                        name="descricao" 
+                        class="form-input form-textarea"
+                        placeholder="Descreva as características e aplicações do produto..."
+                        maxlength="500"
+                    ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save" aria-hidden="true"></i>
+                    Adicionar Produto
+                </button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Notificação -->
+    <div id="notification" class="notification" role="alert" aria-live="polite"></div>
+
+    <script>
+        // Variáveis globais
+        let produtos = [];
+        let produtosFiltrados = [];
+
+        // Elementos DOM
+        const produtosContainer = document.getElementById('produtos-container');
+        const searchInput = document.getElementById('search');
+        const formAdd = document.getElementById('form-add');
+        const btnGerar = document.getElementById('btn-gerar');
+        const btnToggleForm = document.getElementById('btn-toggle-form');
+        const addProductSection = document.getElementById('add-product-section');
+        const loadingElement = document.getElementById('loading');
+        const emptyStateElement = document.getElementById('empty-state');
+        const notificationElement = document.getElementById('notification');
+
+        // Funções utilitárias
+        function showNotification(message, isError = false) {
+            notificationElement.textContent = message;
+            notificationElement.className = `notification ${isError ? 'error' : ''} show`;
+            setTimeout(() => {
+                notificationElement.classList.remove('show');
+            }, 3000);
+        }
+
+        function showLoading(show = true) {
+            loadingElement.style.display = show ? 'block' : 'none';
+        }
+
+        function showEmptyState(show = true) {
+            emptyStateElement.style.display = show ? 'block' : 'none';
+        }
+
+        // Carregar produtos do servidor
+        async function carregarProdutos() {
+            try {
+                showLoading(true);
+                showEmptyState(false);
+                
+                // Simular chamada à API - substitua pela URL real
+                // const res = await fetch('/api/produtos');
+                // const data = await res.json();
+                
+                // Dados de exemplo para demonstração
+                const data = [
+                    {
+                        id: 1,
+                        nome: "Papel Offset A4",
+                        descricao: "Papel branco de alta qualidade para impressão offset",
+                        especificacoes: {
+                            type: "Papel",
+                            size: "A4 (210x297mm)",
+                            thickness: "0.1mm",
+                            gsm: "75gsm"
+                        }
+                    },
+                    {
+                        id: 2,
+                        nome: "Cartão Duplex 250g",
+                        descricao: "Cartão duplex branco ideal para embalagens e impressão",
+                        especificacoes: {
+                            type: "Cartão",
+                            size: "66x96cm",
+                            thickness: "0.4mm",
+                            gsm: "250gsm"
+                        }
+                    }
+                ];
+                
+                produtos = data;
+                produtosFiltrados = [...produtos];
+                mostrarProdutos();
+                
+            } catch (error) {
+                console.error('Erro ao carregar produtos:', error);
+                showNotification('Erro ao carregar produtos', true);
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        // Mostrar produtos na tela
+        function mostrarProdutos() {
+            produtosContainer.innerHTML = '';
+            
+            if (produtosFiltrados.length === 0) {
+                showEmptyState(true);
+                return;
+            }
+            
+            showEmptyState(false);
+            
+            produtosFiltrados.forEach((produto, index) => {
+                const card = document.createElement('div');
+                card.className = 'product-card fade-in';
+                card.role = 'listitem';
+                card.style.animationDelay = `${index * 0.1}s`;
+                
+                card.innerHTML = `
+                    <div class="product-header">
+                        <span class="product-id" aria-label="ID do produto">ID: ${produto.id}</span>
+                        <div class="product-actions">
+                            <button 
+                                class="btn-small btn-save" 
+                                data-id="${produto.id}"
+                                type="button"
+                                aria-label="Salvar alterações do produto ${produto.id}"
+                                title="Salvar alterações"
+                            >
+                                <i class="fas fa-save" aria-hidden="true"></i>
+                            </button>
+                            <button 
+                                class="btn-small btn-remove" 
+                                data-id="${produto.id}"
+                                type="button"
+                                aria-label="Remover produto ${produto.id}"
+                                title="Remover produto"
+                            >
+                                <i class="fas fa-trash" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label class="input-label" for="nome-${produto.id}">Nome do Produto</label>
+                        <input 
+                            type="text" 
+                            id="nome-${produto.id}"
+                            value="${produto.nome || ''}" 
+                            data-field="nome" 
+                            data-id="${produto.id}" 
+                            class="form-input edit-input"
+                            maxlength="100"
+                            aria-label="Nome do produto ${produto.id}"
+                        />
+                    </div>
+                    
+                    <div class="input-group">
+                        <label class="input-label" for="descricao-${produto.id}">Descrição</label>
+                        <textarea 
+                            id="descricao-${produto.id}"
+                            data-field="descricao" 
+                            data-id="${produto.id}" 
+                            class="form-input form-textarea edit-input"
+                            maxlength="500"
+                            aria-label="Descrição do produto ${produto.id}"
+                        >${produto.descricao || ''}</textarea>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="input-group">
+                            <label class="input-label" for="type-${produto.id}">Tipo</label>
+                            <input 
+                                type="text" 
+                                id="type-${produto.id}"
+                                value="${produto.especificacoes?.type || ''}" 
+                                data-field="type" 
+                                data-id="${produto.id}" 
+                                class="form-input edit-input"
+                                maxlength="50"
+                                aria-label="Tipo do produto ${produto.id}"
+                            />
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label" for="size-${produto.id}">Tamanho</label>
+                            <input 
+                                type="text" 
+                                id="size-${produto.id}"
+                                value="${produto.especificacoes?.size || ''}" 
+                                data-field="size" 
+                                data-id="${produto.id}" 
+                                class="form-input edit-input"
+                                maxlength="50"
+                                aria-label="Tamanho do produto ${produto.id}"
+                            />
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label" for="thickness-${produto.id}">Espessura</label>
+                            <input 
+                                type="text" 
+                                id="thickness-${produto.id}"
+                                value="${produto.especificacoes?.thickness || ''}" 
+                                data-field="thickness" 
+                                data-id="${produto.id}" 
+                                class="form-input edit-input"
+                                maxlength="30"
+                                aria-label="Espessura do produto ${produto.id}"
+                            />
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label" for="gsm-${produto.id}">GSM</label>
+                            <input 
+                                type="text" 
+                                id="gsm-${produto.id}"
+                                value="${produto.especificacoes?.gsm || ''}" 
+                                data-field="gsm" 
+                                data-id="${produto.id}" 
+                                class="form-input edit-input"
+                                maxlength="30"
+                                aria-label="GSM do produto ${produto.id}"
+                            />
+                        </div>
+                    </div>
+                `;
+                
+                produtosContainer.appendChild(card);
+            });
+
+            // Adicionar event listeners
+            adicionarEventListeners();
+        }
+
+        // Adicionar event listeners para os botões e inputs
+        function adicionarEventListeners() {
+            // Botões de salvar
+            document.querySelectorAll('.btn-save').forEach(btn => {
+                btn.addEventListener('click', salvarProduto);
+            });
+
+            // Botões de remover
+            document.querySelectorAll('.btn-remove').forEach(btn => {
+                btn.addEventListener('click', removerProduto);
+            });
+
+            // Detectar mudanças nos campos para destacar
+            document.querySelectorAll('.edit-input').forEach(input => {
+                const originalValue = input.value;
+                input.addEventListener('input', function() {
+                    if (this.value !== originalValue) {
+                        this.classList.add('changed');
+                    } else {
+                        this.classList.remove('changed');
+                    }
+                });
+            });
+        }
+
+        // Salvar produto
+        async function salvarProduto(e) {
+            const id = parseInt(e.target.closest('.btn-save').dataset.id);
+            const inputs = document.querySelectorAll(`.edit-input[data-id="${id}"]`);
+            
+            const produtoAtualizado = {
+                id,
+                nome: '',
+                descricao: '',
+                especificacoes: {}
+            };
+
+            inputs.forEach(input => {
+                const field = input.dataset.field;
+                if (field === 'nome') {
+                    produtoAtualizado.nome = input.value;
+                } else if (field === 'descricao') {
+                    produtoAtualizado.descricao = input.value;
+                } else {
+                    produtoAtualizado.especificacoes[field] = input.value;
+                }
+            });
+
+            try {
+                // Desabilitar botão durante salvamento
+                e.target.disabled = true;
+                e.target.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i>';
+
+                // Simular chamada à API - substitua pela URL real
+                // await fetch(`/api/produtos/${id}`, {
+                //     method: 'PUT',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify(produtoAtualizado)
+                // });
+
+                // Simular delay da API
+                await new Promise(resolve => setTimeout(resolve, 500));
+
+                // Atualizar produto localmente
+                const index = produtos.findIndex(p => p.id === id);
+                if (index !== -1) {
+                    produtos[index] = produtoAtualizado;
+                }
+
+                // Remover classe de alterado dos inputs
+                inputs.forEach(input => input.classList.remove('changed'));
+
+                showNotification('Produto atualizado com sucesso!');
+                
+            } catch (error) {
+                console.error('Erro ao salvar produto:', error);
+                showNotification('Erro ao salvar produto', true);
+            } finally {
+                // Reabilitar botão
+                e.target.disabled = false;
+                e.target.innerHTML = '<i class="fas fa-save" aria-hidden="true"></i>';
+            }
+        }
+
+        // Remover produto
+        async function removerProduto(e) {
+            const id = parseInt(e.target.closest('.btn-remove').dataset.id);
+            const produto = produtos.find(p => p.id === id);
+            
+            if (!confirm(`Tem certeza que deseja remover o produto "${produto?.nome || id}"?`)) {
+                return;
+            }
+
+            try {
+                // Desabilitar botão durante remoção
+                e.target.disabled = true;
+                e.target.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i>';
+
+                // Simular chamada à API - substitua pela URL real
+                // await fetch(`/api/produtos/${id}`, { method: 'DELETE' });
+
+                // Simular delay da API
+                await new Promise(resolve => setTimeout(resolve, 500));
+
+                // Remover produto localmente
+                produtos = produtos.filter(p => p.id !== id);
+                produtosFiltrados = produtosFiltrados.filter(p => p.id !== id);
+
+                showNotification('Produto removido com sucesso!');
+                mostrarProdutos();
+                
+            } catch (error) {
+                console.error('Erro ao remover produto:', error);
+                showNotification('Erro ao remover produto', true);
+            }
+        }
+
+        // Adicionar novo produto
+        formAdd.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const novoProduto = {
+                id: parseInt(formData.get('id')),
+                nome: formData.get('nome'),
+                descricao: formData.get('descricao'),
+                especificacoes: {
+                    type: formData.get('type'),
+                    size: formData.get('size'),
+                    thickness: formData.get('thickness'),
+                    gsm: formData.get('gsm')
+                }
+            };
+
+            // Verificar se ID já existe
+            if (produtos.some(p => p.id === novoProduto.id)) {
+                showNotification('ID já existe! Use um ID diferente.', true);
+                return;
+            }
+
+            try {
+                // Desabilitar botão durante envio
+                const submitBtn = e.target.querySelector('button[type="submit"]');
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Adicionando...';
+
+                // Simular chamada à API - substitua pela URL real
+                // await fetch('/api/produtos', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify(novoProduto)
+                // });
+
+                // Simular delay da API
+                await new Promise(resolve => setTimeout(resolve, 500));
+
+                // Adicionar produto localmente
+                produtos.push(novoProduto);
+                produtosFiltrados = [...produtos];
+
+                // Limpar formulário
+                e.target.reset();
+                
+                // Esconder formulário
+                addProductSection.style.display = 'none';
+                btnToggleForm.innerHTML = '<i class="fas fa-plus" aria-hidden="true"></i> Adicionar Produto';
+                btnToggleForm.setAttribute('aria-label', 'Mostrar formulário de adicionar produto');
+
+                showNotification('Produto adicionado com sucesso!');
+                mostrarProdutos();
+                
+            } catch (error) {
+                console.error('Erro ao adicionar produto:', error);
+                showNotification('Erro ao adicionar produto', true);
+            } finally {
+                // Reabilitar botão
+                const submitBtn = e.target.querySelector('button[type="submit"]');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-save" aria-hidden="true"></i> Adicionar Produto';
+            }
+        });
+
+        // Toggle formulário de adicionar
+        btnToggleForm.addEventListener('click', () => {
+            const isVisible = addProductSection.style.display !== 'none';
+            
+            if (isVisible) {
+                addProductSection.style.display = 'none';
+                btnToggleForm.innerHTML = '<i class="fas fa-plus" aria-hidden="true"></i> Adicionar Produto';
+                btnToggleForm.setAttribute('aria-label', 'Mostrar formulário de adicionar produto');
+            } else {
+                addProductSection.style.display = 'block';
+                btnToggleForm.innerHTML = '<i class="fas fa-minus" aria-hidden="true"></i> Ocultar Formulário';
+                btnToggleForm.setAttribute('aria-label', 'Ocultar formulário de adicionar produto');
+                
+                // Focar no primeiro campo
+                document.getElementById('input-id').focus();
+            }
+        });
+
+        // Gerar PDF
+        btnGerar.addEventListener('click', async () => {
+            try {
+                // Desabilitar botão durante geração
+                btnGerar.disabled = true;
+                btnGerar.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Gerando PDF...';
+
+                // Simular chamada à API - substitua pela URL real
+                // const res = await fetch('/api/gerar-pdf', { method: 'POST' });
+                // const json = await res.json();
+
+                // Simular delay da API
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+                showNotification('PDF gerado com sucesso!');
+                
+            } catch (error) {
+                console.error('Erro ao gerar PDF:', error);
+                showNotification('Erro ao gerar PDF', true);
+            } finally {
+                // Reabilitar botão
+                btnGerar.disabled = false;
+                btnGerar.innerHTML = '<i class="fas fa-file-pdf" aria-hidden="true"></i> Gerar PDF';
+            }
+        });
+
+        // Pesquisa
+        searchInput.addEventListener('input', (e) => {
+            const termo = e.target.value.toLowerCase().trim();
+            
+            if (!termo) {
+                produtosFiltrados = [...produtos];
+            } else {
+                produtosFiltrados = produtos.filter(produto =>
+                    String(produto.id).includes(termo) ||
+                    (produto.nome && produto.nome.toLowerCase().includes(termo)) ||
+                    (produto.descricao && produto.descricao.toLowerCase().includes(termo)) ||
+                    (produto.especificacoes?.type && produto.especificacoes.type.toLowerCase().includes(termo))
+                );
+            }
+            
+            mostrarProdutos();
+        });
+
+        // Navegação por teclado no formulário
+        document.addEventListener('keydown', (e) => {
+            // Esc para fechar formulário
+            if (e.key === 'Escape' && addProductSection.style.display !== 'none') {
+                btnToggleForm.click();
+            }
+            
+            // Ctrl+F para focar na pesquisa
+            if (e.ctrlKey && e.key === 'f') {
+                e.preventDefault();
+                searchInput.focus();
+            }
+            
+            // Ctrl+N para adicionar produto
+            if (e.ctrlKey && e.key === 'n') {
+                e.preventDefault();
+                if (addProductSection.style.display === 'none') {
+                    btnToggleForm.click();
+                }
+            }
+        });
+
+        // Carregar produtos ao inicializar
+        document.addEventListener('DOMContentLoaded', () => {
+            carregarProdutos();
+        });
+
+        // Inicializar aplicação
+        carregarProdutos();
+    </script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YMR Industrial - Gestão de Catálogo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1><i class="fas fa-cog" aria-hidden="true"></i> YMR Industrial</h1>
+            <p class="header-subtitle">Bem-vindo ao YMR Gerador de Catálogo</p>
+        </div>
+    </header>
+
+    <!-- Container principal -->
+    <div class="container">
+        <!-- Dicas de uso -->
+        <section class="usage-tips" role="region" aria-labelledby="tips-title">
+            <h2 class="tips-title" id="tips-title">
+                <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                Dicas de Uso
+            </h2>
+            <ul class="tips-list">
+                <li><strong>Adicionar:</strong> Preencha o formulário abaixo e clique em "Adicionar Produto"</li>
+                <li><strong>Editar:</strong> Clique nos campos dos cards para editar e salve com o botão verde</li>
+                <li><strong>Remover:</strong> Use o botão vermelho para excluir produtos (confirmação necessária)</li>
+                <li><strong>Pesquisar:</strong> Use a barra de pesquisa para filtrar por ID ou nome</li>
+                <li><strong>PDF:</strong> Gere catálogos atualizados com todos os produtos cadastrados</li>
+            </ul>
+        </section>
+        <div class="show-usage-tips">
+          <i class="fas fa-lightbulb" aria-hidden="true"></i>
+        </div>
+
+        <!-- Seção de pesquisa -->
+        <section class="search-section" role="search" aria-label="Pesquisar produtos">
+            <div class="search-container">
+                <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                <input 
+                    type="text" 
+                    id="search" 
+                    class="search-input"
+                    placeholder="Pesquise por ID ou nome do produto..."
+                    aria-label="Campo de pesquisa de produtos"
+                    autocomplete="off"
+                />
+            </div>
+            
+            <!-- Botões de ação -->
+            <div class="action-buttons">
+                <button id="btn-gerar" class="btn btn-secondary" type="button" aria-label="Gerar catálogo em PDF">
+                    <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                    Gerar PDF
+                </button>
+                <button id="btn-toggle-form" class="btn btn-primary" type="button" aria-label="Mostrar formulário de adicionar produto">
+                    <i class="fas fa-plus" aria-hidden="true"></i>
+                    Adicionar Produto
+                </button>
+            </div>
+        </section>
+
+        <!-- Secção de produtos -->
+        <section class="products-section products-sectionY" role="region" aria-labelledby="products-title">
+            <div id="produtos-container" class="products-grid" role="list" aria-label="Lista de produtos"></div>
+            <div id="loading" class="loading" style="display: none;" role="status" aria-label="Carregando produtos">
+                Carregando produtos...
+            </div>
+            <div id="empty-state" class="empty-state" style="display: none;">
+                <i class="fas fa-box-open" aria-hidden="true"></i>
+                <h3>Nenhum produto encontrado</h3>
+                <p>Adicione seus primeiros produtos ao catálogo</p>
+            </div>
+        </section>
+
+        <!-- Seção de adicionar produto -->
+        <section class="add-product-section" id="add-product-section" style="display: none;" role="region" aria-labelledby="add-title">
+            <h2 class="add-product-title" id="add-title">
+                <i class="fas fa-plus-circle" aria-hidden="true"></i>
+                Adicionar Novo Produto
+            </h2>
+            <form id="form-add" role="form" aria-label="Formulário para adicionar produto">
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label for="input-id" class="input-label">ID do Produto *</label>
+                        <input 
+                            type="number" 
+                            id="input-id"
+                            name="id" 
+                            class="form-input"
+                            placeholder="Ex: 001" 
+                            required 
+                            aria-required="true"
+                            min="1"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <label for="input-nome" class="input-label">Nome do Produto *</label>
+                        <input 
+                            type="text" 
+                            id="input-nome"
+                            name="nome" 
+                            class="form-input"
+                            placeholder="Ex: Papel Offset A4" 
+                            required 
+                            aria-required="true"
+                            maxlength="100"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <label for="input-type" class="input-label">Tipo</label>
+                        <input 
+                            type="text" 
+                            id="input-type"
+                            name="type" 
+                            class="form-input"
+                            placeholder="Ex: Papel, Cartão"
+                            maxlength="50"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <label for="input-size" class="input-label">Tamanho</label>
+                        <input 
+                            type="text" 
+                            id="input-size"
+                            name="size" 
+                            class="form-input"
+                            placeholder="Ex: A4, A3, 210x297mm"
+                            maxlength="50"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <label for="input-thickness" class="input-label">Espessura</label>
+                        <input 
+                            type="text" 
+                            id="input-thickness"
+                            name="thickness" 
+                            class="form-input"
+                            placeholder="Ex: 0.1mm, 2mm"
+                            maxlength="30"
+                        />
+                    </div>
+                    <div class="input-group">
+                        <label for="input-gsm" class="input-label">GSM</label>
+                        <input 
+                            type="text" 
+                            id="input-gsm"
+                            name="gsm" 
+                            class="form-input"
+                            placeholder="Ex: 75gsm, 120gsm"
+                            maxlength="30"
+                        />
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="input-descricao" class="input-label">Descrição</label>
+                    <textarea 
+                        id="input-descricao"
+                        name="descricao" 
+                        class="form-input form-textarea"
+                        placeholder="Descreva as características e aplicações do produto..."
+                        maxlength="500"
+                    ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save" aria-hidden="true"></i>
+                    Adicionar Produto
+                </button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Notificação -->
+    <div id="notification" class="notification" role="alert" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>

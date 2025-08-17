@@ -1,0 +1,1096 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Martelo Ball Pein 3/4 LB",
+      "descricao": "Martelo ball pein projetado para trabalhos de conformação, rebites e modelagem de metal, com cabeça em aço temperado e cabo ergonâmico.",
+      "especificacoes": {
+        "type": "Martelo ball pein (pena esférica)",
+        "size": "3/4 lb (~ 340 g), ~ 300 mm",
+        "thickness": "28–32 mm",
+        "gsm": ""
+      }
+    },
+    {
+      "id": 2,
+      "nome": "Alicate de Corte de Fio",
+      "descricao": "Alicate de corte diagonal para fios e cabos, com lâminas em aço temperado e cabos ergonômicos para uso profissional ou doméstico.",
+      "especificacoes": {
+        "type": "Alicate de corte diagonal",
+        "size": "160 mm ou 180 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 3,
+      "nome": "Alicate de Corte Diagonal",
+      "descricao": "Alicate projetado para cortes precisos em fios e cabos, com lâminas afiadas e resistência elevada para uso elétrico e mecânico.",
+      "especificacoes": {
+        "type": "Alicate de corte diagonal",
+        "size": "160 mm ou 180 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 4,
+      "nome": "Alicate de Nariz Longo",
+      "descricao": "Alicate de bico longo e fino, ideal para alcançar áreas de difícil acesso, segurar, dobrar ou cortar fios com precisão em trabalhos elétricos e de montagem.",
+      "especificacoes": {
+        "type": "Alicate de bico longo",
+        "size": "160 mm ou 200 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 5,
+      "nome": "Alicate de Nariz Curto",
+      "descricao": "Alicate com bico curto e robusto, indicado para segurar, dobrar ou manipular peças metálicas e fios em espaços reduzidos, oferecendo maior força e controle.",
+      "especificacoes": {
+        "type": "Alicate de bico curto",
+        "size": "130 mm ou 160 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 6,
+      "nome": "Alicate de Combinação",
+      "descricao": "Alicate multifuncional utilizado para segurar, dobrar, cortar e desencapar fios, combinando funções de corte e prensagem em uma única ferramenta.",
+      "especificacoes": {
+        "type": "Alicate de combinação",
+        "size": "160 mm, 180 mm ou 200 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 7,
+      "nome": "Conjunto de Chaves de Fendas",
+      "descricao": "Kit de chaves de fenda com diferentes tamanhos e pontas, projetadas para apertar ou soltar parafusos fenda simples em trabalhos manuais, elétricos e mecânicos.",
+      "especificacoes": {
+        "type": "Chaves de fenda",
+        "size": "Conjunto com tamanhos variados (ex.: 3 mm a 8 mm)",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 8,
+      "nome": "Chave para Tubo",
+      "descricao": "Ferramenta ajustável projetada para apertar ou soltar conexões e tubos, com mordentes dentados que garantem firmeza e aderência durante o uso.",
+      "especificacoes": {
+        "type": "Chave para tubo ajustável",
+        "size": "10\" a 24\"",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 9,
+      "nome": "Martelo de Fibra de Vidro de Borracha",
+      "descricao": "Martelo com cabo de fibra de vidro e cabeça de borracha, ideal para aplicações que exigem impacto sem danificar a superfície, como montagem de móveis e trabalhos de marcenaria.",
+      "especificacoes": {
+        "type": "Martelo de borracha com cabo de fibra de vidro",
+        "size": "225 g a 680 g",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 10,
+      "nome": "Chave Combinada",
+      "descricao": "Ferramenta com uma extremidade fixa e outra tipo estrela, utilizada para apertar ou soltar porcas e parafusos, oferecendo versatilidade em trabalhos mecânicos e de manutenção.",
+      "especificacoes": {
+        "type": "Chave combinada",
+        "size": "6 mm a 32 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 11,
+      "nome": "Chave de Boca Dupla",
+      "descricao": "Chave manual com duas extremidades fixas de tamanhos diferentes, utilizada para apertar ou soltar porcas e parafusos com cabeça sextavada ou quadrada.",
+      "especificacoes": {
+        "type": "Chave de boca dupla",
+        "size": "6x7 mm a 30x32 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 12,
+      "nome": "Conjunto de Chaves 6 a 19 mm - 8 Peças",
+      "descricao": "Kit de chaves combinadas com medidas de 6 mm a 19 mm, fabricadas em aço de alta resistência, ideal para trabalhos mecânicos e de manutenção.",
+      "especificacoes": {
+        "type": "Chaves combinadas",
+        "size": "6 mm a 19 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 13,
+      "nome": "Garrafa de Amostras de Plástico 1L",
+      "descricao": "Garrafa de plástico resistente com capacidade de 1 litro, utilizada para coleta, armazenamento e transporte de amostras líquidas em análises laboratoriais e industriais.",
+      "especificacoes": {
+        "type": "Garrafa plástica para amostras",
+        "size": "1 litro",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 14,
+      "nome": "Garrafa de Amostras de Vidro 1L",
+      "descricao": "Garrafa de vidro transparente com capacidade de 1 litro, projetada para coleta e armazenamento de amostras líquidas que exigem preservação sem interação química com o recipiente.",
+      "especificacoes": {
+        "type": "Garrafa de vidro para amostras",
+        "size": "1 litro",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 15,
+      "nome": "Fita Petro",
+      "descricao": "Fita de proteção anticorrosiva impregnada com petróleo ou cera especial, utilizada para revestimento e isolamento de tubulações metálicas expostas a umidade e ambientes agressivos.",
+      "especificacoes": {
+        "type": "Fita anticorrosiva petro",
+        "size": "Largura 50 mm a 150 mm",
+        "thickness": "1 mm a 2 mm",
+        "gsm": null
+      }
+    },
+    {
+      "id": 16,
+      "nome": "Fato-Macaco para Chuva",
+      "descricao": "Macacão impermeável de corpo inteiro, projetado para proteger contra chuva intensa e respingos, ideal para trabalhos ao ar livre em condições climáticas adversas.",
+      "especificacoes": {
+        "type": "Macacão impermeável",
+        "size": "P, M, G, GG",
+        "thickness": null,
+        "gsm": "180 a 240 g/m²"
+      }
+    },
+    {
+      "id": 17,
+      "nome": "Óleo Hidráulico Magnum AW ISO 68",
+      "descricao": "Óleo hidráulico de alta performance, formulado com aditivos antidesgaste e antioxidantes, indicado para sistemas hidráulicos industriais e móveis que operam sob altas pressões.",
+      "especificacoes": {
+        "type": "Óleo hidráulico AW",
+        "size": "ISO 68",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 18,
+      "nome": "Ultra-refrigerante IR",
+      "descricao": "Fluido refrigerante industrial formulado para processos de usinagem e corte, proporcionando excelente dissipação de calor e lubrificação, aumentando a vida útil das ferramentas.",
+      "especificacoes": {
+        "type": "Refrigerante industrial",
+        "size": "Fornecido em tambores de 20 L, 50 L ou 200 L",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 19,
+      "nome": "Cortador de Parafusos",
+      "descricao": "Ferramenta de corte robusta com lâminas de alta resistência, projetada para cortar parafusos, correntes, hastes metálicas e cadeados com eficiência.",
+      "especificacoes": {
+        "type": "Cortador de parafusos",
+        "size": "350 mm a 1050 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 20,
+      "nome": "Fita Adesiva",
+      "descricao": "Fita com dorso plástico ou de papel e revestimento adesivo, utilizada para fixação, vedação, embalagem e reparos gerais.",
+      "especificacoes": {
+        "type": "Fita adesiva",
+        "size": "Largura 12 mm a 72 mm",
+        "thickness": "40 µm a 70 µm",
+        "gsm": null
+      }
+    },
+    {
+      "id": 21,
+      "nome": "Chave de Fenda Estrela",
+      "descricao": "Ferramenta manual com ponta em formato cruz (Phillips), utilizada para apertar ou soltar parafusos com cabeça em cruz, comum em trabalhos de montagem e manutenção.",
+      "especificacoes": {
+        "type": "Chave de fenda Phillips",
+        "size": "PH0 a PH4",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 22,
+      "nome": "Chave Inglesa",
+      "descricao": "Chave ajustável com mordente móvel, utilizada para apertar ou soltar parafusos e porcas de diferentes tamanhos, ideal para trabalhos mecânicos e hidráulicos.",
+      "especificacoes": {
+        "type": "Chave ajustável",
+        "size": "4\" a 24\"",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 23,
+      "nome": "Bomba de Sistema de Processo CPSK 4560",
+      "descricao": "Bomba industrial projetada para sistemas de processo contínuo, oferecendo alta eficiência e durabilidade em aplicações químicas, petroquímicas e de tratamento de água.",
+      "especificacoes": {
+        "type": "Bomba de processo industrial",
+        "size": "Modelo CPSK 4560",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 24,
+      "nome": "Engate de Luvas",
+      "descricao": "Conector mecânico utilizado para unir duas luvas ou mangueiras de forma segura, permitindo passagem contínua de fluidos ou ar comprimido.",
+      "especificacoes": {
+        "type": "Engate para luvas/mangueiras",
+        "size": "Diâmetros variados (ex.: 1/4\", 3/8\", 1/2\")",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 25,
+      "nome": "Mesa para Corte de Madeira",
+      "descricao": "Mesa robusta projetada para apoiar e estabilizar peças de madeira durante o corte, podendo incluir guias, grampos e superfície antiderrapante para maior precisão e segurança.",
+      "especificacoes": {
+        "type": "Mesa de corte para marcenaria",
+        "size": "Dimensões variáveis (ex.: 1000 x 600 mm)",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 26,
+      "nome": "Bomba de Diafragma Titan",
+      "descricao": "Bomba pneumática de diafragma, projetada para bombear líquidos viscosos, abrasivos ou com sólidos em suspensão, oferecendo resistência química e operação segura em diversas indústrias.",
+      "especificacoes": {
+        "type": "Bomba pneumática de diafragma",
+        "size": "Modelo Titan (capacidades variáveis)",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 27,
+      "nome": "Sacos Grandes 1000Kg",
+      "descricao": "Sacos industriais de grande capacidade, fabricados em polipropileno trançado, projetados para armazenar e transportar até 1000 kg de materiais a granel como grãos, minérios ou produtos químicos.",
+      "especificacoes": {
+        "type": "Big bag de polipropileno",
+        "size": "Capacidade 1000 kg",
+        "thickness": null,
+        "gsm": "150 a 200 g/m²"
+      }
+    },
+    {
+      "id": 28,
+      "nome": "Bomba Selos Molhados",
+      "descricao": "Bomba industrial equipada com selos mecânicos lubrificados pelo próprio fluido bombeado, ideal para aplicações que exigem vedação confiável e operação contínua.",
+      "especificacoes": {
+        "type": "Bomba com selo mecânico molhado",
+        "size": "Modelos e capacidades variadas",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 29,
+      "nome": "Fato Tyvek",
+      "descricao": "Macacão de proteção descartável fabricado em material Tyvek, resistente a partículas sólidas e respingos líquidos, indicado para trabalhos industriais, laboratoriais e de manutenção.",
+      "especificacoes": {
+        "type": "Macacão de proteção Tyvek",
+        "size": "P, M, G, GG",
+        "thickness": null,
+        "gsm": "41 a 55 g/m²"
+      }
+    },
+    {
+      "id": 30,
+      "nome": "Gaxeta de Fibra Acrílica",
+      "descricao": "Vedação trançada em fibra acrílica impregnada com lubrificante e agente selante, utilizada para aplicações em bombas e válvulas, resistente a produtos químicos moderados e altas temperaturas.",
+      "especificacoes": {
+        "type": "Gaxeta de fibra acrílica",
+        "size": "Seções quadradas ou retangulares de 3 mm a 25 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 31,
+      "nome": "Balde de Lixo",
+      "descricao": "Recipiente para descarte de resíduos, fabricado em plástico ou metal, disponível em diferentes capacidades e formatos para uso doméstico, comercial ou industrial.",
+      "especificacoes": {
+        "type": "Balde para resíduos",
+        "size": "10 L a 120 L",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 32,
+      "nome": "Bloco de Corrente",
+      "descricao": "Equipamento de elevação manual que utiliza corrente para movimentar cargas pesadas, ideal para operações em oficinas, armazéns e indústrias.",
+      "especificacoes": {
+        "type": "Talha manual de corrente",
+        "size": "Capacidades de 0,5 t a 5 t",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 33,
+      "nome": "Macacão Laranja",
+      "descricao": "Macacão de alta visibilidade na cor laranja, fabricado em tecido resistente, indicado para trabalhos industriais, construção civil e operações que exigem segurança e identificação visual.",
+      "especificacoes": {
+        "type": "Macacão de alta visibilidade",
+        "size": "P, M, G, GG",
+        "thickness": null,
+        "gsm": "180 a 240 g/m²"
+      }
+    },
+    {
+      "id": 34,
+      "nome": "Fita Adesiva Polyken",
+      "descricao": "Fita adesiva industrial de alta resistência, utilizada para vedação, isolamento e proteção de superfícies, especialmente em aplicações de tubulações e infraestrutura.",
+      "especificacoes": {
+        "type": "Fita adesiva industrial Polyken",
+        "size": "Largura 50 mm a 150 mm",
+        "thickness": "0,25 mm a 1 mm",
+        "gsm": null
+      }
+    },
+    {
+      "id": 35,
+      "nome": "Colete Salva-Vida",
+      "descricao": "Dispositivo de flutuação pessoal projetado para manter o usuário à tona na água, fabricado em material resistente e com enchimento de espuma ou câmaras de ar, utilizado para segurança em atividades aquáticas.",
+      "especificacoes": {
+        "type": "Colete de flutuação",
+        "size": "PP, P, M, G, GG",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 36,
+      "nome": "Cinta de Amarração com Roquete",
+      "descricao": "Cinta de poliéster resistente equipada com roquete metálico, utilizada para fixação e transporte seguro de cargas em caminhões, caminhonetes e reboques.",
+      "especificacoes": {
+        "type": "Cinta de amarração com roquete",
+        "size": "Largura 25 mm a 50 mm, comprimento 4 m a 10 m",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 37,
+      "nome": "Cinta de Elevação",
+      "descricao": "Cinta de poliéster ou náilon projetada para içamento de cargas, oferecendo alta resistência e durabilidade, adequada para operações de movimentação industrial segura.",
+      "especificacoes": {
+        "type": "Cinta de elevação",
+        "size": "Largura 50 mm a 200 mm, comprimento 1 m a 10 m",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 38,
+      "nome": "Cinto de Segurança e Absorvedor de Energia Yamada NP-797",
+      "descricao": "Cinto de segurança com absorvedor de energia, projetado para proteção individual em trabalhos em altura, escalada ou resgate. Fabricado em poliéster resistente, com anel D de aço, mosquetão cromado, gancho forjado e pontos de ajuste para conforto e segurança máxima.",
+      "especificacoes": {
+        "type": "Cinto de segurança com absorvedor de energia",
+        "size": "PP, P, M, G, GG",
+        "thickness": null,
+        "gsm": null
+      },
+      "detalhes_adicionais": {
+        "modelo": "NP-797",
+        "material": "100% poliéster",
+        "largura_correia": "50 mm",
+        "cor": "Verde",
+        "componentes": [
+          "Anel D de aço para fixação dorsal",
+          "Cinto de suporte de cintura largo",
+          "Quatro pontos de ajuste",
+          "Mosquetão cromado e gancho forjado com certificação CE"
+        ],
+        "resistencia": "≥23 kN (alguns modelos até 30 kN)",
+        "caracteristicas_adicionais": [
+          "Corda de segurança dupla plana com absorvedor de tração",
+          "Correia resistente, flexível e alta resistência ao choque",
+          "Gancho de segurança grande fundido com proteção contra ferrugem, antirreflexo e durável",
+          "Aba fluorescente para maior visibilidade",
+          "Almofada confortável na coxa",
+          "Listras refletoras para visibilidade no escuro"
+        ],
+        "uso": "Proteção geral contra quedas, escalada, trabalho em telhados ou resgate",
+        "certificacao": "CE",
+        "dimensoes_produto": "12 cm (L) x 26 cm (C) x 23 cm (A)",
+        "peso": "3,5 kg"
+      }
+    },
+    {
+      "id": 39,
+      "nome": "Lanterna de Cabeça LED",
+      "descricao": "Lanterna portátil para uso em cabeça, equipada com LED de alta luminosidade, ideal para atividades noturnas, trabalhos em áreas escuras ou esportes ao ar livre, permitindo iluminação mãos-livres.",
+      "especificacoes": {
+        "type": "Lanterna de cabeça LED",
+        "size": "Ajustável para diferentes circunferências de cabeça",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 40,
+      "nome": "Colete Reflector",
+      "descricao": "Colete de alta visibilidade com faixas refletoras, projetado para garantir segurança em ambientes com baixa luminosidade ou tráfego, utilizado por trabalhadores da construção civil, logística e emergências.",
+      "especificacoes": {
+        "type": "Colete de segurança refletor",
+        "size": "P, M, G, GG",
+        "thickness": null,
+        "gsm": "150 a 200 g/m²"
+      }
+    },
+    {
+      "id": 41,
+      "nome": "Projetores Halógenos para Construção com Suporte",
+      "descricao": "Projetores halógenos de alta intensidade para iluminação de áreas de construção, equipados com suporte ajustável para posicionamento seguro e direcionamento preciso da luz.",
+      "especificacoes": {
+        "type": "Projetor halógeno com suporte",
+        "size": "Potência 500 W a 1000 W, ajuste de ângulo do suporte",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 42,
+      "nome": "Luvas de Impacto",
+      "descricao": "Luvas de proteção com reforço em áreas críticas para absorção de impactos e proteção contra cortes, ideais para trabalhos industriais, mecânicos e de construção.",
+      "especificacoes": {
+        "type": "Luvas de proteção contra impacto",
+        "size": "P, M, G, GG",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 43,
+      "nome": "Fita para Capacete",
+      "descricao": "Fita adesiva ou decorativa projetada para fixação ou identificação em capacetes de segurança, aumentando a visibilidade e permitindo personalização ou sinalização de risco.",
+      "especificacoes": {
+        "type": "Fita para capacete de segurança",
+        "size": "Largura 20 mm a 50 mm, comprimento 1 m a 5 m",
+        "thickness": "0,1 mm a 0,3 mm",
+        "gsm": null
+      }
+    },
+    {
+      "id": 44,
+      "nome": "Escova de Arame de Moagem Circular",
+      "descricao": "Escova circular de arame metálico utilizada em lixamento, limpeza de superfícies, remoção de ferrugem, pintura ou resíduos, ideal para uso em ferramentas rotativas e industriais.",
+      "especificacoes": {
+        "type": "Escova circular de arame",
+        "size": "Diâmetro 50 mm a 200 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 45,
+      "nome": "Escova de Arame de Aço",
+      "descricao": "Escova manual ou para máquina, fabricada com arame de aço, indicada para limpeza de superfícies metálicas, remoção de ferrugem, pintura e acabamento industrial.",
+      "especificacoes": {
+        "type": "Escova de arame de aço",
+        "size": "Diâmetro 50 mm a 150 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 46,
+      "nome": "Disco de Corte de Metal",
+      "descricao": "Disco abrasivo projetado para corte de metais em ferramentas angulares, proporcionando cortes precisos e rápidos em aço, ferro e outros materiais metálicos.",
+      "especificacoes": {
+        "type": "Disco abrasivo para metal",
+        "size": "Diâmetro 100 mm a 230 mm",
+        "thickness": "1 mm a 3 mm",
+        "gsm": null
+      }
+    },
+    {
+      "id": 47,
+      "nome": "Kit de Chaves Sextavadas",
+      "descricao": "Conjunto de chaves hexagonais de diferentes tamanhos, utilizadas para montagem, manutenção e reparo de equipamentos mecânicos, móveis e eletrônicos.",
+      "especificacoes": {
+        "type": "Conjunto de chaves sextavadas",
+        "size": "Tamanhos de 1,5 mm a 10 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 48,
+      "nome": "Rebarbadora GWS 2000, 220V",
+      "descricao": "Ferramenta elétrica angular para corte, desbaste e polimento de metal, com motor potente de 220V, ideal para aplicações industriais e profissionais de construção.",
+      "especificacoes": {
+        "type": "Rebarbadora angular elétrica",
+        "size": "Disco de 230 mm, potência 2000 W",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 49,
+      "nome": "Berbequim Bosch",
+      "descricao": "Berbequim elétrico versátil, indicado para perfuração em madeira, metal, plástico e alvenaria, oferecendo precisão, durabilidade e desempenho profissional.",
+      "especificacoes": {
+        "type": "Berbequim elétrico",
+        "size": "Potência 500 W a 800 W, capacidade de perfuração 10 mm a 25 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 50,
+      "nome": "Parafusadeira Sem Fio",
+      "descricao": "Ferramenta elétrica portátil, sem fio, projetada para parafusamento e desmontagem rápida, com bateria recarregável de alta duração e torque ajustável para diferentes aplicações.",
+      "especificacoes": {
+        "type": "Parafusadeira elétrica sem fio",
+        "size": "Tensão 12V a 20V, torque 15 Nm a 40 Nm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 51,
+      "nome": "Serra Elétrica Bosch 85mm",
+      "descricao": "Serra elétrica portátil para cortes precisos em madeira, plástico e outros materiais, equipada com lâmina de 85 mm, motor potente e design ergonômico para uso profissional e doméstico.",
+      "especificacoes": {
+        "type": "Serra elétrica portátil",
+        "size": "Diâmetro da lâmina 85 mm, potência 500 W a 700 W",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 52,
+      "nome": "Martelo Rotativo Fixtec, 1800W",
+      "descricao": "Martelo rotativo elétrico de alto desempenho, ideal para perfuração e demolição em concreto, alvenaria e pedra, equipado com motor de 1800W e mecanismo de impacto eficiente.",
+      "especificacoes": {
+        "type": "Martelo rotativo elétrico",
+        "size": "Potência 1800 W, capacidade de perfuração 26 mm em concreto",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 53,
+      "nome": "Martelo Demolidor Hoteche, 1500W",
+      "descricao": "Martelo demolidor elétrico de alto impacto, projetado para quebrar concreto, alvenaria e superfícies duras, equipado com motor de 1500W e empunhadura ergonômica para uso prolongado.",
+      "especificacoes": {
+        "type": "Martelo demolidor elétrico",
+        "size": "Potência 1500 W, capacidade de impacto 25 J",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 54,
+      "nome": "Punho Para Berbequins",
+      "descricao": "Punho adicional ajustável para berbequins, proporcionando maior controle, estabilidade e segurança durante perfurações em diversos materiais.",
+      "especificacoes": {
+        "type": "Punho auxiliar para berbequim",
+        "size": "Compatível com berbequins de 10 mm a 32 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 55,
+      "nome": "Rolo Para Pintura",
+      "descricao": "Rolo de pintura ideal para aplicação uniforme de tintas em paredes, tetos e superfícies lisas ou texturizadas, proporcionando acabamento profissional.",
+      "especificacoes": {
+        "type": "Rolo de pintura",
+        "size": "Largura 10 cm a 25 cm, comprimento do pelo 8 mm a 20 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 56,
+      "nome": "Escova de Aço com Pega de Madeira",
+      "descricao": "Escova manual com arame de aço e cabo de madeira resistente, ideal para limpeza de superfícies metálicas, remoção de ferrugem, pintura antiga e preparação para acabamento.",
+      "especificacoes": {
+        "type": "Escova de aço manual",
+        "size": "Comprimento total 200 mm a 300 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 57,
+      "nome": "Graxa Multi-uso Lubriplate",
+      "descricao": "Graxa lubrificante multiuso, adequada para reduzir atrito e proteger peças mecânicas contra desgaste, oxidação e corrosão, ideal para automóveis, máquinas e equipamentos industriais.",
+      "especificacoes": {
+        "type": "Graxa lubrificante multiuso",
+        "size": "Embalagem de 400 g a 1 kg",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 58,
+      "nome": "Protetor Para os Ouvidos (UVEX)",
+      "descricao": "Protetor auditivo de alta performance da marca UVEX, projetado para reduzir níveis de ruído em ambientes industriais, construção civil e outras áreas de trabalho ruidosas, proporcionando conforto e proteção prolongada.",
+      "especificacoes": {
+        "type": "Protetor auricular",
+        "size": "Ajustável para diferentes tamanhos de cabeça",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 59,
+      "nome": "Fita Teflon",
+      "descricao": "Fita de vedação de PTFE (Teflon), utilizada para selar roscas de tubos e conexões, prevenindo vazamentos em sistemas hidráulicos, pneumáticos e de água potável.",
+      "especificacoes": {
+        "type": "Fita de vedação PTFE",
+        "size": "Largura 12 mm a 19 mm, comprimento 5 m a 12 m",
+        "thickness": "0,1 mm a 0,2 mm",
+        "gsm": null
+      }
+    },
+    {
+      "id": 60,
+      "nome": "Fita Contra Corrosão",
+      "descricao": "Fita autoadesiva de proteção anticorrosiva, utilizada para isolar e proteger superfícies metálicas contra umidade, oxidação e degradação, ideal para tubulações e conexões expostas.",
+      "especificacoes": {
+        "type": "Fita anticorrosiva",
+        "size": "Largura 25 mm a 50 mm, comprimento 5 m a 10 m",
+        "thickness": "0,2 mm a 0,5 mm",
+        "gsm": null
+      }
+    },
+    {
+      "id": 61,
+      "nome": "Fita de Precaução (Amarelo e Preto)",
+      "descricao": "Fita de sinalização em cores amarelo e preto, utilizada para demarcar áreas de risco, restringir acesso e alertar sobre perigos em obras, fábricas ou ambientes industriais.",
+      "especificacoes": {
+        "type": "Fita de sinalização de segurança",
+        "size": "Largura 50 mm, comprimento 50 m",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 62,
+      "nome": "Abraçadeiras",
+      "descricao": "Abraçadeiras metálicas ou plásticas, utilizadas para fixar cabos, mangueiras ou tubos, garantindo organização e segurança em instalações elétricas, hidráulicas e mecânicas.",
+      "especificacoes": {
+        "type": "Abraçadeiras de fixação",
+        "size": "Comprimento 100 mm a 300 mm, largura 2,5 mm a 12 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 63,
+      "nome": "Conjunto de Paquímetro",
+      "descricao": "Conjunto de paquímetros de precisão para medição de dimensões internas, externas e profundidade de peças, ideal para uso em mecânica, marcenaria e inspeção industrial.",
+      "especificacoes": {
+        "type": "Paquímetro de medição",
+        "size": "Capacidade 0-150 mm, 0-200 mm e 0-300 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 64,
+      "nome": "Pistola de Grampos Cable Boss",
+      "descricao": "Ferramenta manual para aplicação rápida e precisa de grampos em cabos elétricos e fios, facilitando a organização e fixação segura em paredes e superfícies diversas.",
+      "especificacoes": {
+        "type": "Pistola manual de grampos",
+        "size": "Compatível com grampos de 10 mm a 25 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 65,
+      "nome": "Alicate Para Descarnar Fios",
+      "descricao": "Alicate projetado para remover o isolamento de fios elétricos com precisão, garantindo segurança e eficiência em trabalhos de instalação e manutenção elétrica.",
+      "especificacoes": {
+        "type": "Alicate de descarnar fios",
+        "size": "Capacidade de corte 0,5 mm² a 6 mm²",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 66,
+      "nome": "Testador de Voltagem",
+      "descricao": "Dispositivo portátil para medição e verificação de tensão elétrica em cabos, tomadas e circuitos, proporcionando segurança e precisão em instalações elétricas residenciais e industriais.",
+      "especificacoes": {
+        "type": "Testador elétrico portátil",
+        "size": "Faixa de medição 90V a 1000V AC/DC",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 67,
+      "nome": "Óleo de Compressor Rymax",
+      "descricao": "Óleo lubrificante de alta qualidade para compressores de ar, garantindo redução de atrito, proteção contra desgaste e prolongamento da vida útil do equipamento.",
+      "especificacoes": {
+        "type": "Óleo lubrificante para compressores",
+        "size": "Embalagem de 1L a 5L",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 68,
+      "nome": "Produtos Loctite",
+      "descricao": "Linha de adesivos, selantes e lubrificantes industriais da marca Loctite, destinados à fixação, vedação, proteção e manutenção de peças em diversos setores industriais e domésticos.",
+      "especificacoes": {
+        "type": "Adesivos e selantes industriais",
+        "size": "Embalagens de 10 ml a 500 ml, conforme produto",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 69,
+      "nome": "Escova de Arame Torcido em Copo Com Porca",
+      "descricao": "Escova de arame torcido em formato de copo, equipada com porca de fixação, ideal para remoção de ferrugem, tinta e sujeira em superfícies metálicas, utilizada com ferramentas rotativas.",
+      "especificacoes": {
+        "type": "Escova de arame torcido",
+        "size": "Diâmetro 50 mm a 100 mm, altura do copo 20 mm a 50 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 70,
+      "nome": "Escova Final de Fio de Aço Com Haste",
+      "descricao": "Escova de fio de aço com haste para uso em furadeiras ou retíficas, indicada para limpeza, desbaste e acabamento de superfícies metálicas e remoção de ferrugem em cantos e áreas de difícil acesso.",
+      "especificacoes": {
+        "type": "Escova de fio de aço com haste",
+        "size": "Diâmetro 20 mm a 50 mm, comprimento da haste 6 mm a 10 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 71,
+      "nome": "Conjunto de Chaves Hexagonal Torx",
+      "descricao": "Conjunto de chaves em formato hexagonal e Torx, adequado para apertos e desmontagens de parafusos específicos, garantindo precisão e durabilidade em trabalhos mecânicos e industriais.",
+      "especificacoes": {
+        "type": "Conjunto de chaves hexagonais e Torx",
+        "size": "Tamanhos T10 a T50 e 1,5 mm a 10 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 72,
+      "nome": "Pincel",
+      "descricao": "Pincel manual para pintura, acabamento ou aplicação de vernizes e colas, disponível em diversas larguras e tipos de cerdas para diferentes superfícies e acabamentos.",
+      "especificacoes": {
+        "type": "Pincel manual",
+        "size": "Largura 10 mm a 100 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 73,
+      "nome": "Pincel de Corte de Longo Alcance",
+      "descricao": "Pincel projetado para pintura em áreas de difícil acesso, com cabo longo que permite alcançar cantos e superfícies altas, ideal para retoques e trabalhos detalhados.",
+      "especificacoes": {
+        "type": "Pincel de corte com cabo longo",
+        "size": "Largura 15 mm a 50 mm, comprimento do cabo 50 cm a 1 m",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 74,
+      "nome": "Rolo de Pintura Sem Pega",
+      "descricao": "Rolo de pintura projetado para aplicação de tintas em superfícies lisas ou texturizadas, sem cabo, ideal para trabalhos rápidos e retoques em áreas pequenas ou de difícil acesso.",
+      "especificacoes": {
+        "type": "Rolo de pintura",
+        "size": "Largura 10 cm a 25 cm, diâmetro 4 cm a 6 cm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 75,
+      "nome": "Conjunto de Chaves Combinadas de 14 Unidades",
+      "descricao": "Conjunto de 14 chaves combinadas de diferentes tamanhos, com uma extremidade fixa e outra em boca aberta, ideal para aperto e desaperto de porcas e parafusos em trabalhos mecânicos e industriais.",
+      "especificacoes": {
+        "type": "Chaves combinadas",
+        "size": "Tamanhos de 6 mm a 22 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 76,
+      "nome": "Conjunto de Chaves de Fendas de 26 Unidades",
+      "descricao": "Conjunto com 26 chaves de fenda de diversos tamanhos e tipos de ponta, proporcionando versatilidade para trabalhos de aperto, montagem e manutenção em aplicações elétricas, mecânicas e domésticas.",
+      "especificacoes": {
+        "type": "Chaves de fenda",
+        "size": "Tamanhos variados de 2 mm a 10 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 77,
+      "nome": "Conjunto de Perfuradores Ocos de 12 Unidades",
+      "descricao": "Conjunto de 12 perfuradores ocos de diferentes diâmetros, ideal para trabalhos de perfuração em madeira, plástico ou metal, permitindo cortes precisos e limpos.",
+      "especificacoes": {
+        "type": "Perfuradores ocos",
+        "size": "Diâmetros de 10 mm a 50 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 78,
+      "nome": "Martelo de Duas Vias",
+      "descricao": "Martelo com duas faces de impacto, geralmente uma de borracha ou nylon e outra de material metálico, projetado para trabalhos que exigem versatilidade e controle do impacto.",
+      "especificacoes": {
+        "type": "Martelo de dupla face",
+        "size": "Peso de 300 g a 1 kg, comprimento total 25 cm a 35 cm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 79,
+      "nome": "Luva Tipo Chefe Pele",
+      "descricao": "Luva de proteção confeccionada em couro tipo chefe, oferecendo resistência mecânica, conforto e durabilidade para trabalhos pesados em construção, manutenção e indústria.",
+      "especificacoes": {
+        "type": "Luva de couro tipo chefe",
+        "size": "Tamanhos P, M, G e GG",
+        "thickness": "1 mm a 1,2 mm",
+        "gsm": null
+      }
+    },
+    {
+      "id": 80,
+      "nome": "Conjunto de Chaves de Fenda de 58 Unidades",
+      "descricao": "Conjunto completo com 58 chaves de fenda e pontas intercambiáveis, cobrindo uma ampla variedade de tamanhos e formatos, ideal para trabalhos de manutenção, montagem e reparos gerais.",
+      "especificacoes": {
+        "type": "Chaves de fenda e pontas intercambiáveis",
+        "size": "Tamanhos variados de 2 mm a 10 mm",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 81,
+      "nome": "Bomba de Membrana Pneumática Titan",
+      "descricao": "Bomba de membrana pneumática da linha Titan, projetada para transferência de líquidos e produtos viscosos, resistente a ambientes agressivos e ideal para aplicações industriais.",
+      "especificacoes": {
+        "type": "Bomba de membrana pneumática",
+        "size": "Capacidade de 1/2'' a 2'' de conexão",
+        "thickness": null,
+        "gsm": null
+      }
+    },
+    {
+      "id": 82,
+      "nome": "Saco de Materiais Perigosos",
+      "descricao": "Saco resistente para acondicionamento, transporte e descarte de resíduos perigosos, confeccionado com material de alta resistência e identificado conforme normas de segurança.",
+      "especificacoes": {
+        "type": "Saco para resíduos perigosos",
+        "size": "Capacidade de 50 L a 200 L",
+        "thickness": "0,1 mm a 0,2 mm",
+        "gsm": null
+      }
+    },
+    {
+      "id": 83,
+      "nome": "Cabo de Segurança Contra Chicoteamento de Mangueiras",
+      "descricao": "Cabo de segurança projetado para prevenir acidentes causados pelo chicoteamento de mangueiras pressurizadas, fixando as extremidades e absorvendo a energia gerada por eventuais desconexões.",
+      "especificacoes": {
+        "type": "Cabo de aço com revestimento protetivo",
+        "size": "Comprimento de 50 cm a 150 cm",
+        "thickness": "Diâmetro do cabo de 4 mm a 8 mm",
+        "gsm": null
+      }
+    },
+    {
+      "id": 84,
+      "nome": "Absorvente de Óleo Granulado",
+      "descricao": "Absorvente granulado desenvolvido para a contenção e limpeza de derramamentos de óleos e derivados, oferecendo alta capacidade de absorção e fácil aplicação em pisos e superfícies industriais.",
+      "especificacoes": {
+        "type": "Absorvente granulado mineral ou sintético",
+        "size": "Granulometria de 0,5 mm a 3 mm",
+        "thickness": null,
+        "gsm": "Capacidade de absorção de 5 L a 20 L por saco"
+      }
+    },
+    {
+      "id": 85,
+      "nome": "Regulador de Pressão",
+      "descricao": "Equipamento projetado para reduzir e estabilizar a pressão de entrada de gases ou líquidos, mantendo-a dentro de uma faixa segura e constante para o sistema.",
+      "especificacoes": {
+        "type": "Regulador mecânico, pneumático ou hidráulico",
+        "size": "Conexões de 1/4'' a 1''",
+        "thickness": null,
+        "gsm": "Faixa de ajuste típica de 0,5 a 10 bar"
+      }
+    },
+    {
+      "id": 86,
+      "nome": "Máquina de Pressão",
+      "descricao": "Equipamento de alta pressão utilizado para limpeza, desobstrução ou aplicações industriais que exigem jatos potentes de água ou outros fluidos.",
+      "especificacoes": {
+        "type": "Lavadora ou bomba de alta pressão",
+        "size": "Pressão de trabalho de 1000 a 3000 PSI",
+        "thickness": null,
+        "gsm": "Vazão de 6 a 20 L/min"
+      }
+    },
+    {
+      "id": 87,
+      "nome": "Molykote 111 - 1 kg",
+      "descricao": "Graxa de silicone de alta performance Molykote 111, utilizada para lubrificação e vedação em aplicações industriais, resistente a temperaturas extremas e produtos químicos.",
+      "especificacoes": {
+        "type": "Graxa de silicone",
+        "size": "Embalagem de 1 kg",
+        "thickness": "",
+        "gsm": "Faixa de temperatura de operação: -40°C a +200°C"
+      }
+    },
+    {
+      "id": 88,
+      "nome": "Botas de Plástico Amarelas",
+      "descricao": "Botas impermeáveis confeccionadas em PVC amarelo, ideais para proteção dos pés contra umidade, lama e produtos químicos leves, utilizadas em ambientes industriais, agrícolas e de construção.",
+      "especificacoes": {
+        "type": "Botas de PVC",
+        "size": "Numeração 36 a 46",
+        "thickness": "2 mm a 3 mm",
+        "gsm": null
+      }
+    },
+    {
+      "id": 89,
+      "nome": "Empilhadora",
+      "descricao": "Veículo industrial motorizado utilizado para elevação, movimentação e empilhamento de cargas paletizadas em armazéns, fábricas e centros logísticos.",
+      "especificacoes": {
+        "type": "Empilhadora a combustão ou elétrica",
+        "size": "Capacidade de carga de 1,5 a 5 toneladas",
+        "thickness": null,
+        "gsm": "Altura de elevação de 3 a 6 metros"
+      }
+    },
+    {
+      "id": 90,
+      "nome": "Máscara Respiratória KN95 YMR",
+      "descricao": "Respirador particulado modelo KN95 YMR, projetado para filtrar no mínimo 95% de partículas suspensas no ar, oferecendo proteção contra poeiras, névoas e aerossóis não oleosos.",
+      "especificacoes": {
+        "type": "Respirador filtrante KN95",
+        "size": "Tamanho único adulto",
+        "thickness": "Camadas múltiplas de 0,3 mm no total",
+        "gsm": "Camada filtrante de 40 a 60 gsm por camada"
+      }
+    },
+    {
+      "id": 91,
+      "nome": "Luva de Napa",
+      "descricao": "Luva de proteção confeccionada em napa sintética, oferecendo boa resistência mecânica e conforto, ideal para trabalhos gerais de manutenção, logística e indústria.",
+      "especificacoes": {
+        "type": "Luva de napa sintética",
+        "size": "Tamanhos P, M, G e GG",
+        "thickness": "0,8 mm a 1 mm",
+        "gsm": null
+      }
+    },
+    {
+      "id": 92,
+      "nome": "Tinta em Spray (Cinza, Preta, Vermelha, Castanha, Branca)",
+      "descricao": "Tinta em aerossol de secagem rápida disponível nas cores cinza, preta, vermelha, castanha e branca, indicada para pintura, retoques e acabamentos em superfícies metálicas, plásticas e de madeira.",
+      "especificacoes": {
+        "type": "Tinta acrílica em spray",
+        "size": "Lata de 400 ml",
+        "thickness": "Película seca de 30 µm a 50 µm por demão",
+        "gsm": null
+      }
+    },
+    {
+      "id": 93,
+      "nome": "WD-40",
+      "descricao": "Lubrificante multiuso WD-40, utilizado para proteção contra corrosão, lubrificação de peças móveis, eliminação de umidade e remoção de sujeiras leves.",
+      "especificacoes": {
+        "type": "Lubrificante multiuso em aerossol",
+        "size": "Lata de 300 ml a 500 ml",
+        "thickness": "Película fina de aproximadamente 5 µm",
+        "gsm": null
+      }
+    },
+    {
+      "id": 94,
+      "nome": "Válvulas",
+      "descricao": "Dispositivos mecânicos utilizados para controlar, regular ou interromper o fluxo de líquidos, gases ou vapores em sistemas industriais, hidráulicos e pneumáticos.",
+      "especificacoes": {
+        "type": "Válvulas de esfera, gaveta, globo ou retenção",
+        "size": "Diâmetros nominais de 1/2” a 12”",
+        "thickness": "Espessura de parede conforme pressão nominal",
+        "gsm": null
+      }
+    },
+    {
+      "id": 95,
+      "nome": "Luvas de Nitrilo",
+      "descricao": "Luvas de proteção confeccionadas em borracha nitrílica, resistentes a óleos, combustíveis, solventes e perfurações, ideais para uso industrial, automotivo e laboratorial.",
+      "especificacoes": {
+        "type": "Luvas descartáveis ou reutilizáveis de nitrilo",
+        "size": "Tamanhos P, M, G e GG",
+        "thickness": "0,08 mm a 0,38 mm",
+        "gsm": null
+      }
+    },
+    {
+      "id": 96,
+      "nome": "Luvas YMR",
+      "descricao": "Luvas de proteção oficiais da YMR confeccionadas em borracha nitrílica, resistentes a óleos, combustíveis, solventes e perfurações, ideais para uso industrial, automotivo e laboratorial.",
+      "especificacoes": {
+        "type": "Poliéster",
+        "size": "12cm",
+        "thickness": "1cm",
+        "gsm": "23"
+      }
+    },
+    {
+      "id": 100,
+      "nome": "ProdutoXX",
+      "descricao": "kvjiichk",
+      "especificacoes": {
+        "type": "Poliéster",
+        "size": "12cm",
+        "thickness": "1cm",
+        "gsm": "23"
+      }
+    }
+  ]
+}

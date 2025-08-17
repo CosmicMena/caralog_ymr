@@ -410,29 +410,10 @@ if (btnToggleForm && addProductSection) {
 
 // Gerar PDF (usando sua API real)
 // Gerar PDF (usando sua API real)
-if (btnGerar) {
-    btnGerar.addEventListener('click', async () => {
-        try {
-            // Desabilitar botão durante geração
-            btnGerar.disabled = true;
-            btnGerar.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Gerando PDF...';
+document.getElementById('btn-gerar').addEventListener('click', () => {
+  window.open('/api/gerar-pdf', '_blank'); // abre o PDF em nova aba
+});
 
-            // Sua chamada real à API
-            const res = await fetch('/api/gerar-pdf', { method: 'POST' });
-            const json = await res.json();
-
-            showNotification(json.message || 'PDF gerado com sucesso!');
-            
-        } catch (error) {
-            console.error('Erro ao gerar PDF:', error);
-            showNotification('Erro ao gerar PDF', true);
-        } finally {
-            // Reabilitar botão
-            btnGerar.disabled = false;
-            btnGerar.innerHTML = '<i class="fas fa-file-pdf" aria-hidden="true"></i> Gerar PDF';
-        }
-    });
-}
 
 // Pesquisa (melhorada)
 if (searchInput) {

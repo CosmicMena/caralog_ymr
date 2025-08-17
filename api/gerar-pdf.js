@@ -5,6 +5,7 @@ const fsp = require('fs/promises');
 const path = require('path');
 const puppeteer = require('puppeteer');
 
+// Função para ler argumentos --key value
 function parseArgs(argv) {
   const out = {};
   for (let i = 0; i < argv.length; i++) {
@@ -18,6 +19,7 @@ function parseArgs(argv) {
   return out;
 }
 
+// Escapar HTML
 function escapeHtml(v) {
   if (v === null || v === undefined) return '';
   return String(v)
@@ -26,6 +28,7 @@ function escapeHtml(v) {
     .replace(/'/g, '&#39;');
 }
 
+// Converte arquivo para Data URI
 async function fileToDataURI(fp) {
   const buf = await fsp.readFile(fp);
   const ext = path.extname(fp).toLowerCase();
@@ -33,9 +36,9 @@ async function fileToDataURI(fp) {
   return `data:${mime};base64,${buf.toString('base64')}`;
 }
 
+// Placeholder SVG
 function svgPlaceholder(text = 'Sem imagem', w = 1200, h = 900) {
-  const svg =
-    `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">
       <rect width="100%" height="100%" fill="#efefef"/>
       <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
             font-family="Arial" font-size="42" fill="#888">${escapeHtml(text)}</text>
@@ -43,25 +46,29 @@ function svgPlaceholder(text = 'Sem imagem', w = 1200, h = 900) {
   return `data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}`;
 }
 
+// Busca imagem por ID
 async function findImageDataURI(imagesDir, id) {
-  const bases = [`.jpg`, `.jpeg`, `.png`];
+  const bases = ['.jpg', '.jpeg', '.png'];
   for (const ext of bases) {
     const full = path.join(imagesDir, `${id}${ext}`);
-    if (fs.existsSync(full)) return fileToDataURI(full);
+    if (fs.existsSync(full)) {
+      try {
+        return await fileToDataURI(full);
+      } catch (err) {
+        console.warn(`Erro lendo imagem ${full}:`, err.message);
+      }
+    }
   }
   return svgPlaceholder('Sem imagem');
 }
 
+// Mapeamento de labels
 function labelFor(key) {
-  const map = {
-    type: 'Tipo',
-    size: 'Tamanho',
-    thickness: 'Espessura',
-    gsm: 'GSM',
-  };
+  const map = { type: 'Tipo', size: 'Tamanho', thickness: 'Espessura', gsm: 'GSM' };
   return map[key] || key;
 }
 
+// Converte objeto de especificações para pares [label, valor]
 function toPairs(obj) {
   if (!obj || typeof obj !== 'object') return [];
   return Object.entries(obj)
@@ -76,27 +83,30 @@ function toPairs(obj) {
     const imagesDir = path.resolve(args.images || './imagens');
     const outPath = path.resolve(args.out || './catalogo.pdf');
     const titulo = String(args.titulo || 'Catálogo de Produtos');
-    const cols = Math.max(1, Math.min(4, Number(args.cols) || 2)); // 1–4 colunas
+    const cols = Math.max(1, Math.min(4, Number(args.cols) || 2));
 
+    if (!fs.existsSync(dataPath)) throw new Error(`Arquivo de dados não encontrado: ${dataPath}`);
+    
     const raw = await fsp.readFile(dataPath, 'utf-8');
     const json = JSON.parse(raw);
     const produtos = Array.isArray(json) ? json : (json.produtos || []);
+    
     if (!Array.isArray(produtos) || produtos.length === 0) {
-      throw new Error('Nenhum produto encontrado em dados.json (esperado campo "produtos" com itens).');
+      throw new Error('Nenhum produto encontrado em dados.json (esperado array ou campo "produtos")');
     }
 
-    // Monta os cards (com imagens em base64)
+    // Monta cards
     const cardsHtml = await Promise.all(produtos.map(async (p) => {
       const id = p.id ?? '';
       const nome = escapeHtml(p.nome ?? '');
       const desc = escapeHtml(p.descricao ?? '');
-      const imgURI = await findImageDataURI(imagesDir, id);
+      let imgURI;
+      try { imgURI = await findImageDataURI(imagesDir, id); } 
+      catch { imgURI = svgPlaceholder('Erro'); }
       const specs = toPairs(p.especificacoes);
 
       const specsHtml = specs.length
-        ? `<ul class="specs">
-            ${specs.map(([k, v]) => `<li><strong>${escapeHtml(k)}:</strong> ${escapeHtml(v)}</li>`).join('')}
-           </ul>`
+        ? `<ul class="specs">${specs.map(([k, v]) => `<li><strong>${escapeHtml(k)}:</strong> ${escapeHtml(v)}</li>`).join('')}</ul>`
         : '';
 
       return `
@@ -111,112 +121,46 @@ function toPairs(obj) {
       `;
     }));
 
-    // HTML + CSS
-    const html = `
-<!doctype html>
+    // HTML final
+    const html = `<!doctype html>
 <html lang="pt">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>${escapeHtml(titulo)}</title>
-  <style>
-    @page { size: A4; margin: 14mm; }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      color: #111;
-    }
-    header {
-      margin-bottom: 10mm;
-      text-align: center;
-    }
-    .title {
-      font-size: 20pt;
-      font-weight: 700;
-      margin: 0 0 4mm 0;
-      letter-spacing: 0.2px;
-    }
-    .subtitle {
-      font-size: 10pt;
-      color: #666;
-      margin: 0;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(${cols}, 1fr);
-      gap: 6mm;
-    }
-
-    .card {
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 5mm;
-      break-inside: avoid;
-      background: #fff;
-      box-shadow: 0 0 0.5mm rgba(0,0,0,0.02);
-    }
-
-    .image-wrap {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      border-radius: 8px;
-      overflow: hidden;
-      background: #f7f7f7;
-      border: 1px solid #eee;
-      margin-bottom: 4mm;
-    }
-    .image-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    .name {
-      font-size: 11pt;
-      margin: 0 0 2mm 0;
-      line-height: 1.25;
-    }
-    .desc {
-      font-size: 9pt;
-      color: #333;
-      margin: 0 0 3mm 0;
-    }
-    .specs {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-size: 9pt;
-    }
-    .specs li {
-      margin: 0 0 1mm 0;
-    }
-    .specs strong {
-      font-weight: 600;
-    }
-
-    /* Evita quebras feias */
-    .card, .image-wrap { page-break-inside: avoid; }
-  </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>${escapeHtml(titulo)}</title>
+<style>
+@page { size: A4; margin: 14mm; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; color:#111;}
+header { text-align:center; margin-bottom:10mm; }
+.title { font-size:20pt; font-weight:700; margin:0 0 4mm 0; letter-spacing:0.2px; }
+.subtitle { font-size:10pt; color:#666; margin:0; }
+.grid { display:grid; grid-template-columns: repeat(${cols},1fr); gap:6mm; }
+.card { border:1px solid #e5e7eb; border-radius:10px; padding:5mm; break-inside:avoid; background:#fff; box-shadow:0 0 0.5mm rgba(0,0,0,0.02); }
+.image-wrap { width:100%; padding-top:75%; position:relative; border-radius:8px; overflow:hidden; background:#f7f7f7; border:1px solid #eee; margin-bottom:4mm;}
+.image-wrap img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain; display:block;}
+.name { font-size:11pt; margin:0 0 2mm 0; line-height:1.25; }
+.desc { font-size:9pt; color:#333; margin:0 0 3mm 0; }
+.specs { list-style:none; padding:0; margin:0; font-size:9pt; }
+.specs li { margin:0 0 1mm 0; }
+.specs strong { font-weight:600; }
+.card, .image-wrap { page-break-inside: avoid; }
+</style>
 </head>
 <body>
-  <header>
-    <h1 class="title">${escapeHtml(titulo)}</h1>
-    <p class="subtitle">Gerado automaticamente</p>
-  </header>
-  <main class="grid">
-    ${cardsHtml.join('\n')}
-  </main>
+<header>
+<h1 class="title">${escapeHtml(titulo)}</h1>
+<p class="subtitle">Gerado automaticamente</p>
+</header>
+<main class="grid">${cardsHtml.join('\n')}</main>
 </body>
-</html>
-`;
+</html>`;
 
     const browser = await puppeteer.launch({
-      // Se rodar em servidor sem Chrome instalado, o Puppeteer baixa o Chromium automaticamente.
-      // Em ambiente restrito, talvez precise setar: executablePath, args, etc.
+      headless: true,
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
+
     const page = await browser.newPage();
     await page.setContent(html, { waitUntil: 'networkidle0' });
 
@@ -224,7 +168,7 @@ function toPairs(obj) {
       path: outPath,
       format: 'A4',
       printBackground: true,
-      margin: { top: '14mm', right: '14mm', bottom: '16mm', left: '14mm' },
+      margin: { top:'14mm', right:'14mm', bottom:'16mm', left:'14mm' },
       displayHeaderFooter: true,
       headerTemplate: `<div style="font-size:8px; width:100%; text-align:center;"></div>`,
       footerTemplate: `
@@ -236,8 +180,9 @@ function toPairs(obj) {
 
     await browser.close();
     console.log('✅ PDF gerado em:', outPath);
+
   } catch (err) {
-    console.error('Erro ao gerar PDF:', err.message);
+    console.error('❌ Erro ao gerar PDF:', err.message);
     process.exit(1);
   }
 })();

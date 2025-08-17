@@ -385,8 +385,26 @@ if (btnToggleForm && addProductSection) {
 // Gerar PDF
 // ==========================
 if (btnGerar) {
-    btnGerar.addEventListener('click', () => {
-        window.open('/api/gerar-pdf', '_blank');
+    btnGerar.addEventListener('click', async () => {
+        try {
+            // Desabilitar botão durante geração
+            btnGerar.disabled = true;
+            btnGerar.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Gerando PDF...';
+
+            // Sua chamada real à API
+            const res = await fetch('/api/gerar-pdf', { method: 'POST' });
+            const json = await res.json();
+
+            showNotification(json.message || 'PDF gerado com sucesso!');
+            
+        } catch (error) {
+            console.error('Erro ao gerar PDF:', error);
+            showNotification('Erro ao gerar PDF', true);
+        } finally {
+            // Reabilitar botão
+            btnGerar.disabled = false;
+            btnGerar.innerHTML = '<i class="fas fa-file-pdf" aria-hidden="true"></i> Gerar PDF';
+        }
     });
 }
 
